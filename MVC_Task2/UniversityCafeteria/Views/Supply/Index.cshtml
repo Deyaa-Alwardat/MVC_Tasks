@@ -1,0 +1,23 @@
+﻿@{
+    string[] categories = ViewBag.Categories as string[]
+                         ?? Array.Empty<string>();
+}
+
+<div class="container mt-4">
+
+    <h2>Product Categories</h2>
+
+    <ul class="list-group">
+
+        @foreach (string category in categories)
+        {
+            <li class="list-group-item">
+                @category
+            </li>
+        }
+
+    </ul>
+
+
+</div>
+

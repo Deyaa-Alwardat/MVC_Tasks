@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Cafeteria Products";
+
+    string[] products = ViewData["Products"] as string[]
+                        ?? Array.Empty<string>();
+}
+
+<div class="container mt-4">
+
+    <h1 class="mb-4">@ViewData["Title"]</h1>
+    <p>Manager:@ViewData["ManagerName"]</p>
+    <p>Number of Products: @ViewData["NumberOfProducts"]</p>
+
+   <div class="row">
+
+        @foreach (string product in products)
+        {
+            <div class="col-md-4 mb-3">
+
+                <div class="card" style="width: 18rem;">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">@product</h5>
+
+                        <p class="card-text">
+                            Cafeteria Product
+                        </p>
+
+                        <a href="#" class="btn btn-primary">
+                            View Product
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+</div>
+
+</div>

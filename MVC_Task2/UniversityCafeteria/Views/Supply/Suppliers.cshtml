@@ -1,0 +1,46 @@
+﻿
+@{
+    string[] suppliers = ViewBag.Suppliers as string[]
+                         ?? Array.Empty<string>();
+}
+
+<div class="container mt-4">
+
+    <h1>@ViewBag.Title</h1>
+
+    <h5 class="mb-4">
+        Number of Suppliers: @ViewBag.NumberOfSuppliers
+    </h5>
+
+    <div class="row">
+
+        @foreach (string supplier in suppliers)
+        {
+            <div class="col-md-4 mb-3">
+
+                <div class="card" style="width: 18rem;">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            @supplier
+                        </h5>
+
+                        <p class="card-text">
+                            Cafeteria Supplier
+                        </p>
+
+                        <a href="#" class="btn btn-primary">
+                            View Supplier
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
