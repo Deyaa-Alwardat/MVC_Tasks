@@ -86,6 +86,7 @@ namespace UniversityCafeteria.Controllers
             ViewBag.ProductName = productName;
             ViewBag.Quantity = quantity;
             ViewBag.RequiredDate = requiredDate;
+            TempData["EmployeeName"]= employeeName;
 
             // Store success message temporarily
             TempData["Message"] = "Supply Request Submitted Successfully!";
@@ -96,7 +97,9 @@ namespace UniversityCafeteria.Controllers
 
         public IActionResult About()
         {
+
             return View();
+
         }
 
         public IActionResult CheckQuantity(int quantity)
