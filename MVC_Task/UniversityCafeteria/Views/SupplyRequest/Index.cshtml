@@ -46,4 +46,12 @@
     </div>
 
     <button type="submit">Add Item</button>
+
+    <!-- عرض رسالة التفضيل إذا كانت موجودة -->
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-info">
+            @ViewBag.Message
+        </div>
+    }
 </form>
