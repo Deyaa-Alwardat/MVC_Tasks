@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "Review Supply Request";
+}
+
+<h2>Review Supply Request</h2>
+
+<h4>Selected Offers</h4>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Category</th>
+            <th>Selected Offer</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>Certificates</td>
+           <td>@ViewBag.CertificateName</td>
+            <td>@ViewBag.CertificateQuantity</td>
+            <td>@ViewBag.CertificateUnitPrice JD</td>
+            <td>@ViewBag.CertificateTotal JD</td>
+        </tr>
+
+        <tr>
+            <td>Hospitality</td>
+            <td>@ViewBag.HospitalityName</td>
+            <td>@ViewBag.HospitalityQuantity</td>
+            <td>@ViewBag.HospitalityUnitPrice JD</td>
+            <td>@ViewBag.HospitalityTotal JD</td>
+        </tr>
+
+        <tr>
+            <td>Gifts</td>
+            <td>@ViewBag.GiftName</td>
+            <td>@ViewBag.GiftQuantity</td>
+            <td>@ViewBag.GiftUnitPrice JD</td>
+            <td>@ViewBag.GiftTotal JD</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Cost Summary</h4>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Total Price</th>
+        <td>@ViewBag.TotalPrice JD</td>
+    </tr>
+    <tr>
+        <th>Discount Percentage</th>
+        <td>@ViewBag.DiscountPercentage %</td>
+    </tr>
+    <tr>
+        <th>Discount Amount</th>
+        <td>@ViewBag.DiscountAmount JD</td>
+    </tr>
+    <tr>
+        <th>Final Total</th>
+        <td>@ViewBag.FinalTotal JD</td>
+    </tr>
+</table>

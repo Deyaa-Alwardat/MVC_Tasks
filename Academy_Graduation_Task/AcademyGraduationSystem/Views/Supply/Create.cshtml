@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"]="Graduation Supply Selection";
+}
+<h2>Graduation Certificates</h2>
+<form method="post" action="@Url.Action("Create", "Supply")">
+<div class="row">
+
+    <!-- Supplier A -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Supplier A</h5>
+                <h6>Premium Certificate Package</h6>
+
+                <p>Quantity: 35</p>
+                <p>Unit Price: 2 JD</p>
+
+                <input type="radio"
+                       name="CertificateOffer"
+                       value="A" />
+
+                <label>Select Offer</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supplier B -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Supplier B</h5>
+                <h6>Standard Certificate Package</h6>
+
+                <p>Quantity: 35</p>
+                <p>Unit Price: 1.5 JD</p>
+
+                <input type="radio"
+                       name="CertificateOffer"
+                       value="B" />
+
+                <label>Select Offer</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supplier C -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Supplier C</h5>
+                <h6>Luxury Certificate Package</h6>
+
+                <p>Quantity: 35</p>
+                <p>Unit Price: 2.5 JD</p>
+
+                <input type="radio"
+                       name="CertificateOffer"
+                       value="C" />
+
+                <label>Select Offer</label>
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr />
+
+<h2>Hospitality</h2>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Supplier D</h5>
+                <h6>Coffee & Drinks Package</h6>
+                <p>Quantity: 100</p>
+                <p>Unit Price: 2 JD</p>
+
+                <input type="radio" name="HospitalityOffer" value="D" />
+                <label>Select Offer</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Supplier E</h5>
+                <h6>Sandwiches & Snacks Package</h6>
+                <p>Quantity: 100</p>
+                <p>Unit Price: 3 JD</p>
+
+                <input type="radio" name="HospitalityOffer" value="E" />
+                <label>Select Offer</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Supplier F</h5>
+                <h6>Full Hospitality Package</h6>
+                <p>Quantity: 100</p>
+                <p>Unit Price: 4 JD</p>
+
+                <input type="radio" name="HospitalityOffer" value="F" />
+                <label>Select Offer</label>
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr />
+
+<h2>Graduation Gifts</h2>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Supplier G</h5>
+                <h6>Customized Mugs Package</h6>
+                <p>Quantity: 35</p>
+                <p>Unit Price: 2 JD</p>
+
+                <input type="radio" name="GiftOffer" value="G" />
+                <label>Select Offer</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Supplier H</h5>
+                <h6>Graduation Bags Package</h6>
+                <p>Quantity: 35</p>
+                <p>Unit Price: 3 JD</p>
+
+                <input type="radio" name="GiftOffer" value="H" />
+                <label>Select Offer</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Supplier I</h5>
+                <h6>Premium Gift Boxes Package</h6>
+                <p>Quantity: 35</p>
+                <p>Unit Price: 4 JD</p>
+
+                <input type="radio" name="GiftOffer" value="I" />
+                <label>Select Offer</label>
+            </div>
+        </div>
+    </div>
+
+</div>
+ <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+
+</form>
+@* <h3>Selected Offers</h3>
+
+<p>Certificates: @ViewBag.CertificateOffer</p>
+<p>Hospitality: @ViewBag.HospitalityOffer</p>
+<p>Gifts: @ViewBag.GiftOffer</p> *@
