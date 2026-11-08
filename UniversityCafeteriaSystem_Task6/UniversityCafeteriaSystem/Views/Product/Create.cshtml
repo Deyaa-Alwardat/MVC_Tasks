@@ -4,10 +4,6 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(m => m.Id, "Product Id:")
-    @Html.TextBoxFor(m => m.Id)
-    <br />
-
     @Html.LabelFor(m => m.Name, "Product Name:")
     @Html.TextBoxFor(m => m.Name)
     <br />
@@ -18,6 +14,14 @@
 
     @Html.LabelFor(m => m.Quantity, "Product Quantity:")
     @Html.TextBoxFor(m => m.Quantity)
+    <br />
+
+    @Html.LabelFor(m => m.CategoryId, "Category Id:")
+    @Html.TextBoxFor(m => m.CategoryId)
+    <br />
+
+    @Html.LabelFor(m => m.SupplierId, "Supplier Id:")
+    @Html.TextBoxFor(m => m.SupplierId)
     <br />
 
     <button type="submit">Save</button>

@@ -25,6 +25,7 @@ namespace UniversityCafeteriaSystem.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
+            product.Id = 0;
             _context.Products.Add(product);
             _context.SaveChanges();
             return RedirectToAction("Index");
