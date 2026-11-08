@@ -8,6 +8,7 @@ namespace AcademyGraduationSystem.Controllers
     {
         public IActionResult Index()
         {
+
             return View();
         }
         [HttpGet]

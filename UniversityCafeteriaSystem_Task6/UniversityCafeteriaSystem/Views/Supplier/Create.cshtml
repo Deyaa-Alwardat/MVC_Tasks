@@ -1,0 +1,20 @@
+﻿@model UniversityCafeteriaSystem.Models.Supplier
+
+<h2>Create Supplier</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Name, "Supplier Name:")
+    @Html.TextBoxFor(m => m.Name)
+    <br />
+
+    @Html.LabelFor(m => m.Phone, "Supplier Phone:")
+    @Html.TextBoxFor(m => m.Phone, new { type = "tel" })
+    <br />
+
+    @Html.LabelFor(m => m.Email, "Supplier Email:")
+    @Html.TextBoxFor(m => m.Email, new { type = "email" })
+    <br />
+
+    <button type="submit">Save</button>
+}

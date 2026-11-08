@@ -1,0 +1,13 @@
+﻿@model UniversityCafeteriaSystem.Models.Category
+<h2>Create Category</h2>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Name  ,"Category Name:")
+    @Html.TextBoxFor(m =>m.Name)
+    <br />
+    @Html.LabelFor(m => m.Description, "Category Description:")
+    @Html.TextBoxFor(m => m.Description)
+
+    <br />
+    <button type="submit">Save</button>
+}
