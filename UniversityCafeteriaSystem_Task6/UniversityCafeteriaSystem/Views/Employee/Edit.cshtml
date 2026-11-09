@@ -1,0 +1,41 @@
+﻿@model UniversityCafeteriaSystem.Models.Employee
+
+<h2>Edit Employee</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Full Name</label>
+        <input asp-for="FullName" />
+    </div>
+
+    <div>
+        <label>Phone</label>
+        <input asp-for="Phone" />
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" />
+    </div>
+
+    <div>
+        <label>Position</label>
+        <input asp-for="Position" />
+    </div>
+
+    <div>
+        <label>Salary</label>
+        <input asp-for="Salary" />
+    </div>
+
+    <div>
+        <label>Hire Date</label>
+        <input asp-for="HireDate" type="date" />
+    </div>
+
+    <button type="submit">Save Changes</button>
+
+</form>

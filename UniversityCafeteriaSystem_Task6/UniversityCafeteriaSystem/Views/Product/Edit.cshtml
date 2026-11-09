@@ -1,0 +1,38 @@
+﻿@model UniversityCafeteriaSystem.Models.Product
+
+<h2>Edit Product</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label>Description</label>
+        <input asp-for="Description" />
+    </div>
+    <div>
+        <label>Price</label>
+        <input asp-for="Price" />
+    </div>
+    <div>
+        <label>Quantity</label>
+        <input asp-for="Quantity" />
+    </div>
+    <div>
+    <label>Category Id</label>
+    <input asp-for="CategoryId" />
+</div>
+
+<div>
+    <label>Supplier Id</label>
+    <input asp-for="SupplierId" />
+</div>
+
+    <button type="submit">Save Changes</button>
+
+</form>

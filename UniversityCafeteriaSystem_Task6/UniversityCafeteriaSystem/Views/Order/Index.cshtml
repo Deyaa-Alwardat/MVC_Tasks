@@ -1,0 +1,53 @@
+﻿
+@model List<UniversityCafeteriaSystem.Models.Order>
+
+<a href="@Url.Action("Create", "Order")">Go To Create</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Customer Name</th>
+            <th>Order Date</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Employee</th>
+            <th>Actions Edit</th>
+            <th>Actions Details</th>
+            <th>Actions Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CustomerName</td>
+                <td>@item.OrderDate</td>
+                <td>@item.TotalPrice</td>
+                <td>@item.Status</td>
+                <td>@item.Employee?.FullName</td>
+
+                <td>
+                    <a href="@Url.Action("Edit", "Order", new { id = item.Id })">Edit</a>
+                </td>
+
+                <td>
+                    <a href="@Url.Action("Details", "Order", new { id = item.Id })">Details</a>
+                </td>
+
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@item.Id" />
+
+                        <button type="submit"
+                                onclick="return confirm('Are you sure you want to delete this order?')">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

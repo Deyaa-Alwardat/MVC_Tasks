@@ -1,0 +1,20 @@
+﻿
+@model UniversityCafeteriaSystem.Models.Order
+
+<h2>Order Details</h2>
+
+<p>Id: @Model.Id</p>
+
+<p>Customer Name: @Model.CustomerName</p>
+
+<p>Order Date: @Model.OrderDate</p>
+
+<p>Total Price: @Model.TotalPrice</p>
+
+<p>Status: @Model.Status</p>
+
+<p>Employee Id: @Model.EmployeeId</p>
+
+<p>Employee Name: @Model.Employee?.FullName</p>
+
+<a href="@Url.Action("Index", "Order")">Back to List</a>

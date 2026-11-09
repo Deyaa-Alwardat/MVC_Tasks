@@ -1,4 +1,6 @@
-﻿namespace UniversityCafeteriaSystem.Models
+﻿using System.Net;
+
+namespace UniversityCafeteriaSystem.Models
 {
     public class Supplier
     {
@@ -9,6 +11,8 @@
         public string Phone { get; set; }
 
         public string Email { get; set; }
+
+        public string 	Address{ get; set; }
         public List<Product> products{  get; set; } = new List<Product>();
     }
 }

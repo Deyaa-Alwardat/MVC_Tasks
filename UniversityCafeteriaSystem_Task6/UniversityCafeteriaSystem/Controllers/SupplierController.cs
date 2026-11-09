@@ -30,5 +30,65 @@ namespace UniversityCafeteriaSystem.Controllers
             
             return RedirectToAction("Index");
         }
+
+        // GET: Edit
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var supplier = _context.Suppliers.Find(id);
+
+            if (supplier == null)
+            {
+                return NotFound();
+            }
+
+            return View(supplier);
+        }
+
+        // POST: Edit
+        [HttpPost]
+        public IActionResult Edit(Supplier supplier)
+        {
+            if (supplier == null)
+            {
+                return NotFound();
+            }
+
+            _context.Suppliers.Update(supplier);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        // GET: Details
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var supplier = _context.Suppliers.Find(id);
+
+            if (supplier == null)
+            {
+                return NotFound();
+            }
+
+            return View(supplier);
+        }
+
+        // POST: Delete
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var supplier = _context.Suppliers.Find(id);
+
+            if (supplier == null)
+            {
+                return NotFound();
+            }
+
+            _context.Suppliers.Remove(supplier);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

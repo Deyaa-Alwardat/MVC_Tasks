@@ -2,19 +2,30 @@
 
 <h2>Create Supplier</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.Name, "Supplier Name:")
-    @Html.TextBoxFor(m => m.Name)
-    <br />
+<form asp-action="Create" method="post">
 
-    @Html.LabelFor(m => m.Phone, "Supplier Phone:")
-    @Html.TextBoxFor(m => m.Phone, new { type = "tel" })
-    <br />
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" />
+    </div>
 
-    @Html.LabelFor(m => m.Email, "Supplier Email:")
-    @Html.TextBoxFor(m => m.Email, new { type = "email" })
-    <br />
+    <div>
+        <label>Phone</label>
+        <input asp-for="Phone" />
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" />
+    </div>
+
+    <div>
+        <label>Address</label>
+        <input asp-for="Address" />
+    </div>
 
     <button type="submit">Save</button>
-}
+
+</form>
+
+<a asp-action="Index">Back to List</a>

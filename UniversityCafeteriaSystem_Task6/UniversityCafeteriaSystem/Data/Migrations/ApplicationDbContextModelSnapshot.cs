@@ -242,7 +242,74 @@ namespace UniversityCafeteriaSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("categories");
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("UniversityCafeteriaSystem.Models.Employee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("HireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("UniversityCafeteriaSystem.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("UniversityCafeteriaSystem.Models.Product", b =>
@@ -255,6 +322,10 @@ namespace UniversityCafeteriaSystem.Data.Migrations
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -275,7 +346,7 @@ namespace UniversityCafeteriaSystem.Data.Migrations
 
                     b.HasIndex("SupplierId");
 
-                    b.ToTable("products");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("UniversityCafeteriaSystem.Models.Supplier", b =>
@@ -285,6 +356,10 @@ namespace UniversityCafeteriaSystem.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -300,7 +375,7 @@ namespace UniversityCafeteriaSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("suppliers");
+                    b.ToTable("Suppliers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -354,6 +429,17 @@ namespace UniversityCafeteriaSystem.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("UniversityCafeteriaSystem.Models.Order", b =>
+                {
+                    b.HasOne("UniversityCafeteriaSystem.Models.Employee", "Employee")
+                        .WithMany("Orders")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
             modelBuilder.Entity("UniversityCafeteriaSystem.Models.Product", b =>
                 {
                     b.HasOne("UniversityCafeteriaSystem.Models.Category", "Category")
@@ -376,6 +462,11 @@ namespace UniversityCafeteriaSystem.Data.Migrations
             modelBuilder.Entity("UniversityCafeteriaSystem.Models.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("UniversityCafeteriaSystem.Models.Employee", b =>
+                {
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("UniversityCafeteriaSystem.Models.Supplier", b =>
