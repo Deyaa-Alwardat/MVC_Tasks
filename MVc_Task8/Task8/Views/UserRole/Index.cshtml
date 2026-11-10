@@ -1,0 +1,31 @@
+﻿<h2>Assign Role To User</h2>
+
+<form asp-controller="UserRole" asp-action="Assign" method="post">
+
+    <div class="mb-3">
+        <label>Select User</label>
+
+        <select name="userId" class="form-control">
+            @foreach (var user in ViewBag.Users)
+            {
+                <option value="@user.Id">@user.Email</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Select Role</label>
+
+        <select name="roleId" class="form-control">
+            @foreach (var role in ViewBag.Roles)
+            {
+                <option value="@role.Id">@role.Name</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Assign Role
+    </button>
+
+</form>

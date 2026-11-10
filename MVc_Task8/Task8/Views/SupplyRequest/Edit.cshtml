@@ -1,0 +1,65 @@
+﻿@model Task8.Models.SupplyRequest
+
+@{
+    var products = ViewBag.Products as List<Task8.Models.Product>;
+}
+
+<h2>Edit Supply Request</h2>
+
+<p><strong>Request ID:</strong> @Model.Id</p>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Available Quantity</th>
+                <th>Required Quantity</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < products.Count; i++)
+            {
+                var oldItem = Model.RequestItems
+                    .FirstOrDefault(x => x.ProductId == products[i].Id);
+
+                <tr>
+                    <td>@products[i].Name</td>
+
+                    <td>@products[i].Price</td>
+
+                    <td>@products[i].Quantity</td>
+
+                    <td>
+                        <input type="hidden"
+                               name="items[@i].ProductId"
+                               value="@products[i].Id" />
+
+                        <input type="number"
+                               name="items[@i].Quantity"
+                               value="@(oldItem?.Quantity ?? 0)"
+                               min="0"
+                               max="@products[i].Quantity"
+                               class="form-control" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">
+        Save Changes
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancel
+    </a>
+
+</form>

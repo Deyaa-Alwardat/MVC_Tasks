@@ -1,0 +1,58 @@
+﻿@model List<Task8.Models.RequestItem>
+
+@{
+    var products = ViewBag.Products as List<Task8.Models.Product>;
+}
+
+<h2>Create Supply Request</h2>
+
+<form asp-action="Create" method="post">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Available Quantity</th>
+                <th>Required Quantity</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < products.Count; i++)
+            {
+                <tr>
+                    <td>@products[i].Name</td>
+
+                    <td>@products[i].Price</td>
+
+                    <td>@products[i].Quantity</td>
+
+                    <td>
+                        <input type="hidden"
+                               name="items[@i].ProductId"
+                               value="@products[i].Id" />
+
+                        <input type="number"
+                               name="items[@i].Quantity"
+                               value="0"
+                               min="0"
+                               max="@products[i].Quantity"
+                               class="form-control" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">
+        Submit Request
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancel
+    </a>
+
+</form>

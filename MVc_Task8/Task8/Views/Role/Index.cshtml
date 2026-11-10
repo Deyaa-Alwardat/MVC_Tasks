@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Identity
+<h2>Roles</h2>
+
+<ul>
+    @foreach (var role in ViewBag.Roles)
+    {
+        <li>@role.Name</li>
+    }
+</ul>
+
+<a asp-controller="Role" asp-action="AddRole" class="btn btn-primary">
+    Add Role
+</a>
